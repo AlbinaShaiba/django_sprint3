@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "../base.html" %}
 {% block title %}
   Лента записей
 {% endblock %}
@@ -6,7 +6,7 @@
   <h1 class="mb-5">Лента записей</h1>
   {% for post in post_list %}
     <article class="mb-5">  
-      {% include "includes/post_card.html" %}
+      {% include "includes/../includes/post_card.html" %}
     </article>   
   {% endfor %}
 {% endblock %}
