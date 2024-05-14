@@ -36,7 +36,7 @@ class Category(BaseModel):
 
 class Location(BaseModel):
     name = models.CharField('Название места',
-                             max_length=256)
+                            max_length=256)
 
     class Meta:
         verbose_name = 'местоположение'
