@@ -11,10 +11,10 @@ class BaseModel(models.Model):
                                                  'чтобы скрыть публикацию.')
     created_at = models.DateTimeField('Добавлено', auto_now_add=True)
 
-
     class Meta:
         abstract = True
         ordering = ('-created_at',)
+
 
 class Category(BaseModel):
     title = models.CharField('Заголовок',
@@ -25,7 +25,6 @@ class Category(BaseModel):
                             help_text='Идентификатор страницы для URL; '
                                       'разрешены символы латиницы, цифры, '
                                       'дефис и подчёркивание.')
-
 
     class Meta:
         verbose_name = 'категория'
@@ -38,7 +37,6 @@ class Category(BaseModel):
 class Location(BaseModel):
     name = models.CharField('Название места',
                              max_length=256)
-
 
     class Meta:
         verbose_name = 'местоположение'
@@ -54,8 +52,8 @@ class Post(BaseModel):
     text = models.TextField('Текст')
     pub_date = models.DateTimeField('Дата и время публикации',
                                     help_text='Если установить дату и время '
-                                              'в будущем — можно делать отложенные '
-                                              'публикации.')
+                                              'в будущем — можно делать '
+                                              'отложенные публикации.')
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
                                verbose_name='Автор публикации')
@@ -69,11 +67,9 @@ class Post(BaseModel):
                                  null=True,
                                  verbose_name='Категория')
 
-
     class Meta:
         verbose_name = 'публикация'
         verbose_name_plural = 'Публикации'
-
 
     def __str__(self):
         return self.title
